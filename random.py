@@ -32,11 +32,28 @@ def searchStudent():
 def displayStudents():
         print("Students:\n")
         if len(students) == 0:
-            print("No students avaliable to display")
+            print("No students available to display")
         else:
             for information in students:
                 grade = students[information]
                 print(f"{information}: {grade}")
+
+def editStudents():
+    name = input("Enter a students name to edit: ")
+    if name not in students:
+        print("Name not found to edit")
+    else:
+        while True:
+            try:
+                grade = int(input("Grade to edit: "))
+                if 0 <= grade <= 100:
+                    students[name] = grade
+                    print(f"{name}'s grade was edited to {grade}")
+                    break
+                else:
+                    print("Grade outside of boundaries, try again")
+            except ValueError:
+                print("Enter an integer")
 
 def saveStudents():
     file = open("students.txt", "w")
@@ -56,10 +73,9 @@ def loadFile():
 
 while True:
         try:
-            
-            number = int(input("Enter 1 to add a student, enter 2 to delete a student,
-                        enter 3 to search for a student, enter 4 to display all students, 
-                        enter 5 to save the information for all students, enter 6 to load the saved info and to end: "))
+            print("---------Student Management--------\n")
+            print("1. Add student\n 2. Delete Student\n 3. Search Student\n 4. Display all students\n 5. Edit student\n 6. Save\n 7. Load\n 8. Exit\n")
+            number = int(input("Choose an option: "))
 
             if number == 1:
                 addStudent()
@@ -74,14 +90,18 @@ while True:
                 displayStudents()
 
             elif number == 5:
-                saveStudents()
+                editStudents()
 
             elif number == 6:
+                saveStudents()
+
+            elif number == 7:
                 loadFile()
+            elif number == 8:
+                print("Exiting..")
                 break
-            
             else:
-                print("Only numbers between 1 to 6, nothing else!")
+                print("Only numbers between 1 to 8, nothing else!")
         except ValueError:
             print("Enter an integer")
 
