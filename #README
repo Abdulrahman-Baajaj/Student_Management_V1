@@ -1,0 +1,22 @@
+My first python project
+# Components:
+1 - Adding a student
+2- Delete a student
+3- Search for a student
+4 - Display all students
+5 - Edit a student's grade
+6 - Save Students to a file
+7 - Load the saved file
+8 - Exit the simulation
+# Includes
+- if statements
+- while loops
+- for loops
+- functions
+- try and except
+- file handling
+- Dictionary
+
+# Note
+- If you have any suggestions, or would like to point out to a mistake
+- Let me know
